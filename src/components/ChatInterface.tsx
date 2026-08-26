@@ -9,7 +9,6 @@ import {
   Key,
   Sliders,
   Sparkles,
-  RefreshCw,
   PlusCircle,
   FolderOpen,
   Brain,
@@ -246,7 +245,7 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({
       </main>
 
       {/* FOOTER: Fixed and Always Visible */}
-      <footer className="fixed bottom-0 left-0 right-0 p-4 sm:p-6 pb-6 border-t border-cyan-500/20 glass-panel shrink-0 z-50">
+      <footer className="fixed bottom-0 left-0 right-0 p-4 sm:p-6 border-t border-cyan-500/20 glass-panel shrink-0 z-50">
         <div className="max-w-4xl mx-auto relative">
           <div className="relative rounded-2xl bg-slate-950/80 border border-cyan-500/30 focus-within:border-cyan-400 focus-within:ring-2 focus-within:ring-cyan-500/30 transition-all shadow-[0_0_20px_rgba(0,0,0,0.5)]">
             <textarea
@@ -270,10 +269,10 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({
             </div>
           </div>
           
-          {/* Powered by PROFESSOR-XMD - Brighter & More Visible */}
-          <div className="flex justify-center items-center mt-4 mb-2">
-            <span className="text-xs font-mono text-slate-300 tracking-wider">
-              <span className="text-cyan-400">✦</span> Powered by <span className="text-cyan-300 font-bold">PROFESSOR-XMD</span> <span className="text-cyan-400">✦</span>
+          {/* Powered by PROFESSOR-XMD - Clean & Simple */}
+          <div className="flex justify-center items-center mt-3">
+            <span className="text-[11px] font-mono text-slate-500 tracking-wide">
+              <span className="text-cyan-500/60">✦</span> Powered by <span className="text-cyan-400 font-semibold">PROFESSOR-XMD</span> <span className="text-cyan-500/60">✦</span>
             </span>
           </div>
         </div>
