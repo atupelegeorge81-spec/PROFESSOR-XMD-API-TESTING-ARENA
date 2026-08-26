@@ -273,7 +273,7 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({
           {/* Powered by PROFESSOR-XMD - Clean & Simple */}
           <div className="flex justify-center items-center mt-3">
             <span className="text-[11px] font-mono text-slate-500 tracking-wide">
-              <span className="text-cyan-500/60">✦</span> Powered by <span className="text-cyan-400 font-semibold">PROFESSOR-XMD</span> <span className="text-cyan-500/60">✦</span>
+              <span className="text-cyan-500/60">✦</span> Powered by <span className="text-cyan-400 font-semibold">PROFESSOR-XMD</span> <span className="text-cyan-500/60"></span>
             </span>
           </div>
         </div>
