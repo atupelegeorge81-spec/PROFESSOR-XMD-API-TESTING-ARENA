@@ -46,7 +46,6 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({
   const [isGenerating, setIsGenerating] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const abortControllerRef = useRef<AbortController | null>(null);
-  const textareaRef = useRef<HTMLTextAreaElement>(null);
   const messages = currentSession.messages;
 
   const scrollToBottom = () => {
@@ -56,28 +55,6 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({
   useEffect(() => {
     scrollToBottom();
   }, [messages, isGenerating]);
-
-  // Handle browser back button
-  useEffect(() => {
-    const handleBackButton = (e: PopStateEvent) => {
-      if (textareaRef.current && document.activeElement === textareaRef.current) {
-        textareaRef.current.blur();
-        e.preventDefault();
-        return false;
-      }
-      if (messages.length > 0) {
-        e.preventDefault();
-        return false;
-      }
-    };
-
-    window.history.pushState({ page: 'chat' }, '');
-    window.addEventListener('popstate', handleBackButton);
-
-    return () => {
-      window.removeEventListener('popstate', handleBackButton);
-    };
-  }, [messages.length]);
 
   const handleSend = async () => {
     if (!inputMessage.trim() || isGenerating) return;
@@ -273,7 +250,6 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({
         <div className="max-w-4xl mx-auto relative">
           <div className="relative rounded-2xl bg-slate-950/80 border border-cyan-500/30 focus-within:border-cyan-400 focus-within:ring-2 focus-within:ring-cyan-500/30 transition-all shadow-[0_0_20px_rgba(0,0,0,0.5)]">
             <textarea
-              ref={textareaRef}
               value={inputMessage}
               onChange={(e) => setInputMessage(e.target.value)}
               onKeyDown={handleKeyDown}
@@ -293,11 +269,11 @@ export const ChatInterface: React.FC<ChatInterfaceProps> = ({
               )}
             </div>
           </div>
-          <div className="flex justify-between items-center mt-2 px-1 text-[11px] font-mono text-slate-500">
-            <span>PROFESSOR-XMD Neural Engine v2.5</span>
-            <span className="flex items-center gap-1">
-              <RefreshCw className="w-3 h-3 text-cyan-400" />
-              Stream mode active
+          
+          {/* Powered by PROFESSOR-XMD - Clean & Simple */}
+          <div className="flex justify-center items-center mt-3">
+            <span className="text-[11px] font-mono text-slate-500 tracking-wide">
+              <span className="text-cyan-500/60">✦</span> Powered by <span className="text-cyan-400 font-semibold">PROFESSOR-XMD</span> <span className="text-cyan-500/60">✦</span>
             </span>
           </div>
         </div>
